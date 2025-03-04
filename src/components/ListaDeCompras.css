@@ -7,4 +7,5 @@
   .btn-group {
     display: flex;
     gap: 5px; /* Espaciado entre los botones */
+  }
   
