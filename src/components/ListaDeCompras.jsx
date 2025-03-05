@@ -1,40 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ListaDeCompras.css"; // estilos
+import useListaDeCompras from "../hooks/useListaDeCompras"; 
 
 function ListaDeCompras() {
-  const [items, setItems] = useState([]);
-  const [newItem, setNewItem] = useState("");
-  const [editItemId, setEditItemId] = useState(null);
-  const [editText, setEditText] = useState("");
-
-  // agregar un artículo
-  const addItem = () => {
-    if (newItem.trim()) {
-      setItems([...items, { id: Date.now(), name: newItem, purchased: false }]);
-      setNewItem("");
-    }
-  };
-
-  // editar un artículo
-  const editItem = (id) => {
-    setItems(items.map(item =>
-      item.id === id ? { ...item, name: editText } : item
-    ));
-    setEditItemId(null);
-  };
-
-  // eliminar un artículo
-  const deleteItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
-  };
-
-  // Marcar/desmarcar como comprado
-  const toggleItem = (id) => {
-    setItems(items.map(item =>
-      item.id === id ? { ...item, purchased: !item.purchased } : item
-    ));
-  };
+  const {
+    items,
+    setNewItem,
+    newItem,
+    editItemId,
+    setEditItemId,
+    editText,
+    setEditText,
+    addItem,
+    editItem,
+    deleteItem,
+    toggleItem,
+  } = useListaDeCompras();
 
   return (
     <div className="container mt-4">
@@ -52,14 +33,14 @@ function ListaDeCompras() {
 
       <ul className="list-group mt-3">
         {items.map(item => (
-          <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
+          <li key={item.id} className={`list-group-item d-flex justify-content-between align-items-center`}>
             <div className="flex-grow-1">
               {editItemId === item.id ? (
                 <input
                   type="text"
-                  className="form-control"
                   value={editText}
                   onChange={(e) => setEditText(e.target.value)}
+                  className="form-control"
                 />
               ) : (
                 <span>{item.name}</span>
