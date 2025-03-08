@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function useListaDeCompras() {
-  const [items, setItems] = useState([]);
+
+  // Función para obtener los datos del localStorage o devolver una lista vacía si no hay nada.
+  const getStoredItems = () => {
+    const storedItems = localStorage.getItem("listaDeCompras");
+    return storedItems ? JSON.parse(storedItems) : [];
+  };
+
+  const [items, setItems] = useState(getStoredItems());
   const [newItem, setNewItem] = useState("");
   const [editItemId, setEditItemId] = useState(null);
   const [editText, setEditText] = useState("");
+
+  // Guardar los datos en el localStorage cada vez que cambian los items.
+  useEffect(() => {
+    localStorage.setItem("listaDeCompras", JSON.stringify(items));
+  }, [items]);
 
   // Agregar un artículo
   const addItem = () => {

@@ -101,7 +101,7 @@ function ListaDeCompras() {
                     Editar
                   </button>
                   <button onClick={() => toggleItem(item.id)} className="btn btn-sm btn-success">
-                    {item.purchased ? "Desmarcar" : "Comprar"}
+                    {item.purchased ? "Comprado" : "Marcar como comprado"}
                   </button>
                   <button onClick={() => handleDeleteItem(item.id)} className="btn btn-sm btn-danger">
                     Eliminar
