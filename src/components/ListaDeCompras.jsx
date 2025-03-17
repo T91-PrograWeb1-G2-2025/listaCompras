@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import useListaDeCompras from "../hooks/useListaDeCompras";
+
 import Swal from "sweetalert2";
 
 function ListaDeCompras() {
@@ -61,8 +62,8 @@ function ListaDeCompras() {
   };
 
   return (
-    <div className="container mt-4">
-      <div className="mb-3">
+    <div className="container mt-3">
+      <div className="mt-2">
         <input
           type="text"
           className="form-control"
@@ -70,7 +71,7 @@ function ListaDeCompras() {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button onClick={handleAddItem} className="btn btn-primary mt-2">Agregar</button>
+        <button onClick={handleAddItem} className="btn btn-primary mt-2" data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className='fa-solid fa-circle-plus'/> Agregar</button>
       </div>
 
       <ul className="list-group mt-3">
@@ -94,18 +95,14 @@ function ListaDeCompras() {
             {/* Grupo de botones */}
             <div className="btn-group">
               {editItemId === item.id ? (
-                <button onClick={() => editItem(item.id)} className="btn btn-success btn-sm">Guardar</button>
+                <button onClick={() => editItem(item.id)} className="btn btn-success btn-sm " data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className="fa-regular fa-floppy-disk"/> Guardar</button>
               ) : (
                 <>
-                  <button onClick={() => setEditItemId(item.id) || setEditText(item.name)} className="btn btn-sm btn-warning">
-                    Editar
-                  </button>
+                  <button onClick={() => setEditItemId(item.id) || setEditText(item.name)} className="btn btn-sm btn-warning" data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className="fa-duotone fa-solid fa-pen-to-square"/> Editar</button>
                   <button onClick={() => toggleItem(item.id)} className="btn btn-sm btn-success">
                     {item.purchased ? "Comprado" : "Marcar como comprado"}
                   </button>
-                  <button onClick={() => handleDeleteItem(item.id)} className="btn btn-sm btn-danger">
-                    Eliminar
-                  </button>
+                  <button onClick={() => handleDeleteItem(item.id)} className="btn btn-sm btn-danger" data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className="fa-duotone fa-solid fa-trash-can"/> Eliminar</button>
                 </>
               )}
             </div>
