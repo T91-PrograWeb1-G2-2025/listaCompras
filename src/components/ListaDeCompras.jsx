@@ -71,13 +71,15 @@ function ListaDeCompras() {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button onClick={handleAddItem} className="btn btn-primary mt-2" data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className='fa-solid fa-circle-plus'/> Agregar</button>
+        <button onClick={handleAddItem} className="btn btn-primary mt-2">
+          <i className='fa-solid fa-circle-plus' /> Agregar
+        </button>
       </div>
 
       <ul className="list-group mt-3">
         {items.map(item => (
-          <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
-            
+          <li key={item.id} className="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+
             {/* Editar el nombre del artículo */}
             <div className="flex-grow-1">
               {editItemId === item.id ? (
@@ -93,16 +95,22 @@ function ListaDeCompras() {
             </div>
 
             {/* Grupo de botones */}
-            <div className="btn-group">
+            <div className="d-flex flex-column flex-md-row gap-2">
               {editItemId === item.id ? (
-                <button onClick={() => editItem(item.id)} className="btn btn-success btn-sm " data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className="fa-regular fa-floppy-disk"/> Guardar</button>
+                <button onClick={() => editItem(item.id)} className="btn btn-success btn-sm">
+                  <i className="fa-regular fa-floppy-disk" /> Guardar
+                </button>
               ) : (
                 <>
-                  <button onClick={() => setEditItemId(item.id) || setEditText(item.name)} className="btn btn-sm btn-warning" data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className="fa-duotone fa-solid fa-pen-to-square"/> Editar</button>
+                  <button onClick={() => setEditItemId(item.id) || setEditText(item.name)} className="btn btn-sm btn-warning">
+                    <i className="fa-duotone fa-solid fa-pen-to-square" /> Editar
+                  </button>
                   <button onClick={() => toggleItem(item.id)} className="btn btn-sm btn-success">
                     {item.purchased ? "Comprado" : "Marcar como comprado"}
                   </button>
-                  <button onClick={() => handleDeleteItem(item.id)} className="btn btn-sm btn-danger" data-bs-toggle="modal" datd-bs-target="#modalproducto"><i className="fa-duotone fa-solid fa-trash-can"/> Eliminar</button>
+                  <button onClick={() => handleDeleteItem(item.id)} className="btn btn-sm btn-danger">
+                    <i className="fa-duotone fa-solid fa-trash-can" /> Eliminar
+                  </button>
                 </>
               )}
             </div>
