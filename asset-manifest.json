@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/listaCompras/static/css/main.98b00f22.css",
-    "main.js": "/listaCompras/static/js/main.8b43fc73.js",
+    "main.css": "/listaCompras/static/css/main.ac437444.css",
+    "main.js": "/listaCompras/static/js/main.b15dd6aa.js",
     "static/media/fa-solid-900.ttf": "/listaCompras/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/fa-brands-400.ttf": "/listaCompras/static/media/fa-brands-400.1815e00441357e01619e.ttf",
     "static/media/fa-solid-900.woff2": "/listaCompras/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
@@ -11,11 +11,11 @@
     "static/media/fa-v4compatibility.ttf": "/listaCompras/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/fa-v4compatibility.woff2": "/listaCompras/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/listaCompras/index.html",
-    "main.98b00f22.css.map": "/listaCompras/static/css/main.98b00f22.css.map",
-    "main.8b43fc73.js.map": "/listaCompras/static/js/main.8b43fc73.js.map"
+    "main.ac437444.css.map": "/listaCompras/static/css/main.ac437444.css.map",
+    "main.b15dd6aa.js.map": "/listaCompras/static/js/main.b15dd6aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.98b00f22.css",
-    "static/js/main.8b43fc73.js"
+    "static/css/main.ac437444.css",
+    "static/js/main.b15dd6aa.js"
   ]
 }
